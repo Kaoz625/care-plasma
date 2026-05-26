@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Care Plasma NYC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .gallery-grid{columns:3;column-gap:16px;margin-top:48px}
+    .gallery-item{break-inside:avoid;margin-bottom:16px;border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer}
+    .gallery-item img{width:100%;display:block;transition:transform 0.5s ease}
+    .gallery-item:hover img{transform:scale(1.04)}
+    .gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,15,30,0.7) 0%,transparent 50%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:20px}
+    .gallery-item:hover .gallery-item-overlay{opacity:1}
+    .gallery-item-overlay span{font-size:13px;color:rgba(255,255,255,0.85);font-weight:500}
+    .lightbox{position:fixed;inset:0;background:rgba(5,10,20,0.95);z-index:9999;display:none;align-items:center;justify-content:center;padding:32px;backdrop-filter:blur(12px)}
+    .lightbox.active{display:flex}
+    .lightbox-inner{max-width:900px;width:100%;text-align:center;position:relative}
+    .lightbox-inner img{max-height:75vh;width:auto;max-width:100%;border-radius:var(--radius);box-shadow:0 32px 80px rgba(0,0,0,0.6)}
+    .lightbox-caption{margin-top:16px;font-size:14px;color:var(--text-muted)}
+    .lightbox-close{position:absolute;top:-48px;right:0;background:none;border:none;color:var(--text-muted);font-size:28px;cursor:pointer;line-height:1}
+    .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--text)}
+    .lightbox-prev{left:-56px}.lightbox-next{right:-56px}
+    @media(max-width:768px){.gallery-grid{columns:2}.lightbox-prev{left:-8px}.lightbox-next{right:-8px}}
+    @media(max-width:480px){.gallery-grid{columns:1}}
+  </style>
+</head>
+<body>
+<nav class="site-nav scrolled" id="nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/CARE-PLASMA-Logo-6.png" alt="Care Plasma"></a><div class="nav-links"><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html" class="active">Gallery</a><a href="contact.html">Contact</a><a href="book.html" class="nav-cta">Book Now &rarr;</a></div><button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="nav-mobile" id="mobile-menu"><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="book.html" class="nav-cta">Book Appointment &rarr;</a></div>
+<section class="page-hero"><div class="section-tag">Gallery</div><h1>Inside Care Plasma</h1><p>A look at our center, our donors, and the community we've built together in Harlem, New York.</p></section>
+<section class="section" style="padding-top:40px">
+  <div class="gallery-grid" id="gallery">
+    <div class="gallery-item reveal" onclick="openLightbox(0)"><img src="https://www.careplasma.com/wp-content/uploads/2024/03/careplasma-plasma-donation-center-scaled.jpg" alt="Care Plasma donation center" loading="lazy"><div class="gallery-item-overlay"><span>Our Donation Center</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(1)"><img src="https://www.careplasma.com/wp-content/uploads/2024/03/Home.png" alt="Care Plasma home" loading="lazy"><div class="gallery-item-overlay"><span>Care Plasma NYC</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(2)"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/to-donate-plasma-center-nyc.png" alt="To donate plasma" loading="lazy"><div class="gallery-item-overlay"><span>Ready to Donate</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(3)"><img src="https://www.careplasma.com/wp-content/uploads/2024/03/9.png" alt="Why donate plasma" loading="lazy"><div class="gallery-item-overlay"><span>Why Donate Plasma</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(4)"><img src="https://www.careplasma.com/wp-content/uploads/2024/03/11.png" alt="About Care Plasma" loading="lazy"><div class="gallery-item-overlay"><span>Our Team</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(5)"><img src="https://www.careplasma.com/wp-content/uploads/2024/03/1-2.png" alt="Plasma donation process" loading="lazy"><div class="gallery-item-overlay"><span>The Donation Process</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(6)"><img src="https://www.careplasma.com/wp-content/uploads/2024/03/2-4.png" alt="Donor experience" loading="lazy"><div class="gallery-item-overlay"><span>Donor Experience</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(7)"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/eligibilty.png" alt="Eligibility" loading="lazy"><div class="gallery-item-overlay"><span>Eligibility &amp; Screening</span></div></div>
+  </div>
+  <p style="text-align:center;color:var(--text-muted);font-size:14px;margin-top:40px">Follow us on <a href="https://www.instagram.com/careplasmanyc/" target="_blank" style="color:var(--accent-2)">Instagram</a> and <a href="https://www.facebook.com/careplasma" target="_blank" style="color:var(--accent-2)">Facebook</a> for the latest photos.</p>
+</section>
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)"><div class="lightbox-inner"><button class="lightbox-close" onclick="closeLightbox()">&times;</button><button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">&lsaquo;</button><img id="lightbox-img" src="" alt=""><div class="lightbox-caption" id="lightbox-cap"></div><button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">&rsaquo;</button></div></div>
+<section style="background:var(--bg-2);border-top:1px solid var(--border);padding:60px 5%;text-align:center"><h3 style="font-family:var(--font-display);font-size:26px;font-weight:700;margin-bottom:12px">Want to see it in person?</h3><p style="color:var(--text-muted);margin-bottom:28px">Come visit us at 1400 5th Ave, Harlem.</p><a href="book.html" class="btn btn-primary">Book Your Visit &rarr;</a></section>
+<footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/CARE-PLASMA-Logo-6.png" alt="Care Plasma"><p>NYC's premier plasma donation center.</p></div><div class="footer-col"><h4>Donate</h4><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="book.html">Book Appointment</a></div><div class="footer-col"><h4>Info</h4><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div><div class="footer-col"><h4>Contact</h4><a href="tel:2129969500">212.996.9500</a><a href="mailto:info@careplasma.com">info@careplasma.com</a></div></div><div class="footer-bottom"><span>&copy; 2026 Care Plasma LLC — Care to Cure</span></div></footer>
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('open')});
+  const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  const images=[{src:'https://www.careplasma.com/wp-content/uploads/2024/03/careplasma-plasma-donation-center-scaled.jpg',cap:'Our Donation Center'},{src:'https://www.careplasma.com/wp-content/uploads/2024/03/Home.png',cap:'Care Plasma NYC'},{src:'https://www.careplasma.com/wp-content/uploads/2024/04/to-donate-plasma-center-nyc.png',cap:'Ready to Donate'},{src:'https://www.careplasma.com/wp-content/uploads/2024/03/9.png',cap:'Why Donate Plasma'},{src:'https://www.careplasma.com/wp-content/uploads/2024/03/11.png',cap:'Our Team'},{src:'https://www.careplasma.com/wp-content/uploads/2024/03/1-2.png',cap:'The Donation Process'},{src:'https://www.careplasma.com/wp-content/uploads/2024/03/2-4.png',cap:'Donor Experience'},{src:'https://www.careplasma.com/wp-content/uploads/2024/04/eligibilty.png',cap:'Eligibility & Screening'}];
+  let currentIdx=0;
+  function openLightbox(idx){currentIdx=idx;document.getElementById('lightbox-img').src=images[idx].src;document.getElementById('lightbox-cap').textContent=images[idx].cap;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden'}
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow=''}
+  function closeLightboxOnBg(e){if(e.target===document.getElementById('lightbox'))closeLightbox()}
+  function navLightbox(dir){currentIdx=(currentIdx+dir+images.length)%images.length;document.getElementById('lightbox-img').src=images[currentIdx].src;document.getElementById('lightbox-cap').textContent=images[currentIdx].cap}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')navLightbox(1);if(e.key==='ArrowLeft')navLightbox(-1)})
+</script>
+</body></html>

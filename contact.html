@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Care Plasma NYC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .contact-layout{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:flex-start;padding:80px 5% 100px}
+    .contact-form-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:48px}
+    .contact-form-card h2{font-family:var(--font-display);font-size:26px;font-weight:700;margin-bottom:8px}
+    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+    .form-group label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)}
+    .form-group input,.form-group select,.form-group textarea{background:var(--bg-3);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-family:var(--font-body);font-size:15px;color:var(--text);outline:none;transition:border-color 0.2s,box-shadow 0.2s;width:100%;-webkit-appearance:none}
+    .form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px oklch(58% 0.22 16 / 0.12)}
+    .form-group textarea{resize:vertical;min-height:130px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-submit{width:100%;padding:16px;font-size:16px;border-radius:12px;background:var(--accent);color:#fff;font-family:var(--font-body);font-weight:700;border:none;cursor:pointer;transition:opacity 0.2s,transform 0.2s;margin-top:8px}
+    .success-msg{display:none;text-align:center;padding:48px 24px}
+    .success-msg.show{display:block}
+    .success-icon{width:68px;height:68px;border-radius:50%;background:oklch(58% 0.22 16 / 0.12);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px}
+    .contact-sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:100px}
+    .cinfo-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 32px}
+    .cinfo-card h4{font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px}
+    .cinfo-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
+    .cinfo-row:last-child{border-bottom:none}
+    .cinfo-icon{width:38px;height:38px;background:var(--bg-3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+    .cinfo-label{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:3px;font-weight:600}
+    .cinfo-value{font-size:15px;color:var(--text)}
+    .cinfo-value a{color:var(--accent-2)}
+    .social-cta-card{background:linear-gradient(135deg,oklch(58% 0.22 16 / 0.1),oklch(65% 0.20 248 / 0.07));border:1px solid oklch(58% 0.22 16 / 0.2);border-radius:var(--radius-lg);padding:28px 32px;text-align:center}
+    .social-cta-card h4{font-family:var(--font-display);font-size:16px;font-weight:700;margin-bottom:8px}
+    .social-cta-card p{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.6}
+    .social-btn-row{display:flex;flex-direction:column;gap:10px}
+    .social-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:100px;font-size:13px;font-weight:500;color:var(--text-muted);transition:border-color 0.2s,color 0.2s}
+    .social-btn:hover{border-color:var(--accent);color:var(--text)}
+    @media(max-width:900px){.contact-layout{grid-template-columns:1fr}.contact-sidebar{position:static}}
+    @media(max-width:600px){.contact-form-card{padding:28px 20px}.form-row{grid-template-columns:1fr}.contact-layout{padding:60px 5% 80px}}
+  </style>
+</head>
+<body>
+<nav class="site-nav scrolled" id="nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/CARE-PLASMA-Logo-6.png" alt="Care Plasma"></a><div class="nav-links"><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html" class="active">Contact</a><a href="book.html" class="nav-cta">Book Now &rarr;</a></div><button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="nav-mobile" id="mobile-menu"><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="book.html" class="nav-cta">Book Appointment &rarr;</a></div>
+<section class="page-hero"><div class="section-tag">Contact Us</div><h1>We'd love to<br>hear from you.</h1><p>Have a question about donating plasma, eligibility, or compensation? Reach out and our friendly team will get back to you promptly.</p></section>
+<div class="contact-layout">
+  <div class="reveal">
+    <div class="contact-form-card">
+      <div id="form-content">
+        <h2>Send us a message</h2>
+        <p style="font-size:15px;color:var(--text-muted);margin-bottom:36px;line-height:1.65">We'll respond within 1 business day.</p>
+        <div class="form-row"><div class="form-group"><label>First Name *</label><input type="text" placeholder="John" required></div><div class="form-group"><label>Last Name *</label><input type="text" placeholder="Smith" required></div></div>
+        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" required></div>
+        <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="(212) 555-0100"></div>
+        <div class="form-group"><label>Subject *</label><select required><option value="" disabled selected>What's this about?</option><option>General inquiry</option><option>Eligibility question</option><option>Booking / appointment</option><option>Compensation question</option><option>Referral program</option><option>Feedback or complaint</option><option>Other</option></select></div>
+        <div class="form-group"><label>Message *</label><textarea placeholder="Tell us how we can help you…" required></textarea></div>
+        <button class="form-submit" onclick="submitContact()">Send Message &rarr;</button>
+      </div>
+      <div class="success-msg" id="success-msg"><div class="success-icon">✓</div><h3 style="font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:10px">Message sent!</h3><p style="font-size:15px;color:var(--text-muted);line-height:1.7">Thanks for reaching out. A member of our team will respond within 1 business day.<br><br>In the meantime, call us at <a href="tel:2129969500" style="color:var(--accent-2)">212.996.9500</a>.</p><a href="index.html" class="btn btn-outline" style="margin-top:24px;display:inline-flex">Back to Home</a></div>
+    </div>
+  </div>
+  <div class="contact-sidebar">
+    <div class="cinfo-card reveal reveal-delay-1"><h4>Contact Info</h4><div class="cinfo-row"><div class="cinfo-icon">📞</div><div><div class="cinfo-label">Phone</div><div class="cinfo-value"><a href="tel:2129969500">212.996.9500</a></div></div></div><div class="cinfo-row"><div class="cinfo-icon">✉️</div><div><div class="cinfo-label">Email</div><div class="cinfo-value"><a href="mailto:info@careplasma.com">info@careplasma.com</a></div></div></div><div class="cinfo-row"><div class="cinfo-icon">📍</div><div><div class="cinfo-label">Address</div><div class="cinfo-value">1400 5th Avenue<br>New York, NY 10026</div></div></div><div class="cinfo-row"><div class="cinfo-icon">🕗</div><div><div class="cinfo-label">Hours</div><div class="cinfo-value">Mon–Sat: 8AM – 1PM<br><span style="color:var(--text-muted);font-size:13px">Sunday closed</span></div></div></div></div>
+    <div class="cinfo-card reveal reveal-delay-2"><h4>Quick Actions</h4><div style="display:flex;flex-direction:column;gap:10px"><a href="book.html" class="btn btn-primary" style="justify-content:center">Book Appointment &rarr;</a><a href="faq.html" class="btn btn-outline" style="justify-content:center">View FAQ</a><a href="location.html" class="btn btn-outline" style="justify-content:center">Get Directions</a></div></div>
+    <div class="social-cta-card reveal reveal-delay-3"><h4>Follow Us</h4><p>Stay updated on promotions, donor stories, and news.</p><div class="social-btn-row">
+      <a href="https://www.facebook.com/careplasma" target="_blank" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+      <a href="https://www.instagram.com/careplasmanyc/" target="_blank" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+      <a href="https://www.youtube.com/@careplasma" target="_blank" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--bg)"/></svg>YouTube</a>
+    </div></div>
+  </div>
+</div>
+<footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/CARE-PLASMA-Logo-6.png" alt="Care Plasma"><p>NYC's premier plasma donation center.</p></div><div class="footer-col"><h4>Donate</h4><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="book.html">Book Appointment</a></div><div class="footer-col"><h4>Info</h4><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div><div class="footer-col"><h4>Contact</h4><a href="tel:2129969500">212.996.9500</a><a href="mailto:info@careplasma.com">info@careplasma.com</a></div></div><div class="footer-bottom"><span>&copy; 2026 Care Plasma LLC — Care to Cure</span></div></footer>
+<script>document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('open')});const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));function submitContact(){document.getElementById('form-content').style.display='none';document.getElementById('success-msg').classList.add('show')}</script>
+</body></html>

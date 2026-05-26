@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Donate Plasma — Care Plasma NYC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+    .impact-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;transition:border-color 0.3s,transform 0.3s;position:relative;overflow:hidden}
+    .impact-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));opacity:0;transition:opacity 0.3s}
+    .impact-card:hover::after{opacity:1}
+    .impact-card:hover{border-color:rgba(255,255,255,0.14);transform:translateY(-5px)}
+    .impact-emoji{font-size:36px;margin-bottom:20px}
+    .impact-card h3{font-family:var(--font-display);font-size:19px;font-weight:700;margin-bottom:10px}
+    .impact-card p{font-size:14px;color:var(--text-muted);line-height:1.7}
+    .quote-section{background:linear-gradient(135deg,oklch(58% 0.22 16 / 0.08),oklch(65% 0.20 248 / 0.06));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 5%;text-align:center}
+    .quote-mark{font-family:var(--font-display);font-size:80px;line-height:0.5;color:var(--accent);opacity:0.4;margin-bottom:24px}
+    blockquote{font-family:var(--font-display);font-size:clamp(22px,3vw,36px);font-weight:700;line-height:1.3;color:var(--text);max-width:720px;margin:0 auto 24px}
+    .facts-banner{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:64px 0 0}
+    .fact-item{padding:36px 28px;border-right:1px solid var(--border);text-align:center}
+    .fact-item:last-child{border-right:none}
+    .fact-num{font-family:var(--font-display);font-size:40px;font-weight:800;color:var(--accent-2);margin-bottom:8px}
+    .fact-label{font-size:13px;color:var(--text-muted);line-height:1.5}
+    .donation-vs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+    .vs-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px}
+    .vs-card.good{border-color:oklch(58% 0.22 16 / 0.3)}.vs-card.info{border-color:oklch(65% 0.20 248 / 0.3)}
+    .vs-card h3{font-family:var(--font-display);font-size:18px;font-weight:700;margin-bottom:20px}
+    .vs-card h3.red{color:var(--accent)}.vs-card h3.blue{color:var(--accent-2)}
+    .vs-list{display:flex;flex-direction:column;gap:12px}
+    .vs-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-muted);line-height:1.6;list-style:none}
+    .vs-list li span{flex-shrink:0;font-size:16px}
+    @media(max-width:768px){.impact-grid{grid-template-columns:1fr 1fr}.facts-banner{grid-template-columns:1fr 1fr}.donation-vs{grid-template-columns:1fr}}
+    @media(max-width:480px){.impact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="site-nav scrolled" id="nav"><div class="nav-inner"><a href="index.html" class="nav-logo"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/CARE-PLASMA-Logo-6.png" alt="Care Plasma"></a><div class="nav-links"><a href="to-donate.html">To Donate</a><a href="why-donate.html" class="active">Why Donate</a><a href="compensation.html">Compensation</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="book.html" class="nav-cta">Book Now &rarr;</a></div><button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+<div class="nav-mobile" id="mobile-menu"><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="book.html" class="nav-cta">Book Appointment &rarr;</a></div>
+<section class="page-hero"><div class="section-tag">Why Donate</div><h1>Your plasma is<br><span style="color:var(--accent)">irreplaceable.</span></h1><p>Plasma can't be manufactured in a lab. It can only come from generous donors like you — and it saves lives every single day.</p></section>
+<section class="quote-section"><div class="quote-mark">&ldquo;</div><blockquote>Donate Plasma. Save Lives. Make a difference with one hour of your time.</blockquote><p style="font-size:14px;color:var(--text-muted);letter-spacing:0.05em">— Care Plasma, Care to Cure</p></section>
+<section class="section">
+  <div class="section-tag">The Numbers</div><h2 class="section-title">Plasma by the numbers</h2>
+  <div class="facts-banner reveal"><div class="fact-item"><div class="fact-num">1,000+</div><div class="fact-label">Donors helped at our NYC center</div></div><div class="fact-item"><div class="fact-num">600+</div><div class="fact-label">Plasma-derived medicines worldwide</div></div><div class="fact-item"><div class="fact-num">90</div><div class="fact-label">Minutes — typical donation session</div></div><div class="fact-item"><div class="fact-num">2–3</div><div class="fact-label">Days for your plasma to replenish</div></div></div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="section-tag">Who You Help</div><h2 class="section-title">Lives touched by<br>every donation</h2>
+  <div class="impact-grid">
+    <div class="impact-card reveal"><div class="impact-emoji">🩺</div><h3>Hemophilia Patients</h3><p>Regular infusions of plasma-derived clotting factors allow people with hemophilia to live normal lives.</p></div>
+    <div class="impact-card reveal reveal-delay-1"><div class="impact-emoji">🛡️</div><h3>Immune Deficiencies</h3><p>Patients with immunodeficiency diseases rely on immunoglobulin therapies — made from pooled plasma — to fight off infections.</p></div>
+    <div class="impact-card reveal reveal-delay-2"><div class="impact-emoji">🔥</div><h3>Burn &amp; Trauma Victims</h3><p>Albumin, a plasma protein, is critical for treating severe burns and traumatic injuries.</p></div>
+    <div class="impact-card reveal"><div class="impact-emoji">🧬</div><h3>Rare Disease Patients</h3><p>Conditions like alpha-1 antitrypsin deficiency are treated exclusively with plasma-derived therapies.</p></div>
+    <div class="impact-card reveal reveal-delay-1"><div class="impact-emoji">🤰</div><h3>Rh Disease Prevention</h3><p>Rh immunoglobulin protects thousands of babies from Rh disease every year.</p></div>
+    <div class="impact-card reveal reveal-delay-2"><div class="impact-emoji">🔬</div><h3>Medical Research</h3><p>Plasma donations fuel research into new therapies, vaccines, and treatments for future generations.</p></div>
+  </div>
+</section>
+<section class="section" style="background:var(--bg-2);padding-top:80px;padding-bottom:80px">
+  <div class="section-tag">Know the Difference</div><h2 class="section-title">Plasma vs. whole blood</h2>
+  <div class="donation-vs">
+    <div class="vs-card good reveal"><h3 class="red">Plasma Donation</h3><ul class="vs-list"><li><span>✅</span>Red blood cells returned — less fatigue</li><li><span>✅</span>Donate up to twice per week</li><li><span>✅</span>Plasma replenishes within 24–48 hours</li><li><span>✅</span>Compensated — earn $50–$60 per session</li><li><span>✅</span>Treats 100+ rare and chronic conditions</li></ul></div>
+    <div class="vs-card info reveal reveal-delay-1"><h3 class="blue">Whole Blood Donation</h3><ul class="vs-list"><li><span>ℹ️</span>All blood components removed — longer recovery</li><li><span>ℹ️</span>Can only donate every 56 days</li><li><span>ℹ️</span>Red cells take 4–6 weeks to replenish</li><li><span>ℹ️</span>Typically not compensated</li><li><span>ℹ️</span>Primarily used for surgeries and emergencies</li></ul></div>
+  </div>
+</section>
+<section class="section" style="text-align:center"><div class="section-tag">Ready to Help?</div><h2 class="section-title">Start saving lives today</h2><p class="section-subtitle" style="margin-left:auto;margin-right:auto">Book your first appointment at our Harlem location. The whole process takes about 90 minutes.</p><div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap"><a href="book.html" class="btn btn-primary">Book Appointment &rarr;</a><a href="compensation.html" class="btn btn-outline">See Compensation Details</a></div></section>
+<footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><img src="https://www.careplasma.com/wp-content/uploads/2024/04/CARE-PLASMA-Logo-6.png" alt="Care Plasma"><p>NYC's premier plasma donation center.</p></div><div class="footer-col"><h4>Donate</h4><a href="to-donate.html">To Donate</a><a href="why-donate.html">Why Donate</a><a href="compensation.html">Compensation</a><a href="book.html">Book Appointment</a></div><div class="footer-col"><h4>Info</h4><a href="faq.html">FAQ</a><a href="location.html">Location</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div><div class="footer-col"><h4>Contact</h4><a href="tel:2129969500">212.996.9500</a><a href="mailto:info@careplasma.com">info@careplasma.com</a></div></div><div class="footer-bottom"><span>&copy; 2026 Care Plasma LLC — Care to Cure</span></div></footer>
+<script>document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('open')});const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))</script>
+</body></html>
